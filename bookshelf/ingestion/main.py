@@ -38,6 +38,7 @@ for root, dirs, files in walk("/Volumes/HomeMedia/media/PrintMedia/Educational/S
     for file in files:
         if file.endswith(".pdf"):
             paths.append(path.join(root, file))
+ 
 
 context = sycamore.init()
 pdf_docset = context.read.binary(paths, binary_format="pdf") \
@@ -50,5 +51,5 @@ pdf_docset = context.read.binary(paths, binary_format="pdf") \
 
 pdf_docset.write.opensearch(
      os_client_args=os_client_args,
-     index_name="test_sycamore",
+     index_name="open-bookshelf",
      index_settings=index_settings)

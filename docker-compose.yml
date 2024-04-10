@@ -3,6 +3,8 @@ services:
     image: opensearchproject/opensearch:${OPENSEARCH_VERSION:-latest}
     container_name: opensearch
     environment:
+      plugins.security.audit.type: internal_opensearch
+      plugins.security.audit.config.disabled_rest_categories: NONE
       discovery.type: single-node
       node.name: opensearch
       OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m"
